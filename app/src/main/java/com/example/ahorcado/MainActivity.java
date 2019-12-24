@@ -18,5 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface face=Typeface.createFromAsset(getAssets(),"fonts/pigment-demo.regular.otf");
         tv_tituloJuego.setTypeface(face);
+
+
     }
 }

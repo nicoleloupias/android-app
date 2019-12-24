@@ -16,13 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_tituloJuego = findViewById(R.id.tv_tituloJuego);
-        bt_jugar = findViewById(R.id.bt_jugar);
-
-        Typeface face=Typeface.createFromAsset(getAssets(),"fonts/pigment-demo.regular.otf");
-        tv_tituloJuego.setTypeface(face);
-        bt_jugar.setTypeface(face);
-
 
     }
 }

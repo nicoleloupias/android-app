@@ -4,4 +4,5 @@
     <string name="bt_jugar">Play</string>
     <string name="et_nombre">Name</string>
     <string name="tv_introducirNombre">What\'s your name?</string>
+    <string name="bt_ok">OK</string>
 </resources>

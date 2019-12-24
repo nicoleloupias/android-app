@@ -75,8 +75,8 @@
 
     <Button
         android:id="@+id/bt_jugar"
-        android:layout_width="223dp"
-        android:layout_height="79dp"
+        android:layout_width="202dp"
+        android:layout_height="81dp"
         android:layout_marginBottom="68dp"
         android:background="@drawable/boton1"
         android:text="@string/bt_jugar"

@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">Ahorcado</string>
     <string name="bt_jugar">Play</string>
+    <string name="et_nombre">Name</string>
+    <string name="tv_introducirNombre">What\'s your name?</string>
 </resources>

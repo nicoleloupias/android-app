@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ahorcado</string>
+    <string name="bt_jugar">Jugar</string>
 </resources>

@@ -8,4 +8,5 @@
     <string name="bt_facil">fácil</string>
     <string name="bt_normal">Normal</string>
     <string name="bt_dificil">dificil</string>
+    <string name="tv_palabra">_ _ _ _ _</string>
 </resources>

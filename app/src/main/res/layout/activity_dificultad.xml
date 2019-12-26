@@ -4,7 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DificultadActivity"
-    android:background="@drawable/fondoverde">
+    android:background="@drawable/fondoverde"
+    tools:context=".DificultadActivity">
+
+    <Button
+        android:id="@+id/bt_ok2"
+        android:layout_width="114dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/boton1"
+        android:fontFamily="@font/pigment"
+        android:shadowColor="#00B11D1D"
+        android:text="@string/bt_ok"
+        android:textColor="#8BC34A"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_dificil" />
+
+    <TextView
+        android:id="@+id/tv_elegirDificultad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/pigment"
+        android:text="@string/tv_elegirDificultad"
+        android:textColor="#FFFFFF"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_light"
+        android:layout_width="78dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/light" />
+
+    <Button
+        android:id="@+id/bt_facil"
+        android:layout_width="194dp"
+        android:layout_height="69dp"
+        android:background="@drawable/boton2"
+        android:fontFamily="@font/pigment"
+        android:text="@string/bt_facil"
+        android:textColor="#FFFFFF"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_elegirDificultad"
+        app:layout_constraintVertical_bias="0.22000003"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/bt_normal"
+        android:layout_width="196dp"
+        android:layout_height="76dp"
+        android:background="@drawable/boton2"
+        android:fontFamily="@font/pigment"
+        android:text="@string/bt_normal"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_dificil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_facil" />
+
+    <Button
+        android:id="@+id/bt_dificil"
+        android:layout_width="193dp"
+        android:layout_height="73dp"
+        android:background="@drawable/boton2"
+        android:fontFamily="@font/pigment"
+        android:text="@string/bt_dificil"
+        android:textColor="#FFFFFF"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_normal" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="85dp"
+        android:layout_height="137dp"
+        app:srcCompat="@drawable/question"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="553dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

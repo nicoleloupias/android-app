@@ -1,0 +1,8 @@
+COSAS QUE HACER:
+[X] Diseño layout de elegir dificultad
+[] Guardar el nombre del usuario que se inserta
+[] Animacion de botones
+[] Diseño layout de juego/palabra
+[] Buscar palabras para cada dificultad
+[] Crear temporizador dependiendo de la dificultad
+[] Cada fallo, agregar la letra al cuadradito de errores y actualizar la imagen del muñeco

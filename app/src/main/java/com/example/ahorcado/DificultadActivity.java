@@ -13,6 +13,7 @@ public class DificultadActivity extends AppCompatActivity {
     private Button bt_facil;
     private Button bt_normal;
     private Button bt_dificil;
+    private Button bt_ok;
     private int dificultadElegida = 0;
 
     @Override
@@ -23,9 +24,22 @@ public class DificultadActivity extends AppCompatActivity {
         bt_facil = findViewById(R.id.bt_facil);
         bt_normal = findViewById(R.id.bt_normal);
         bt_dificil = findViewById(R.id.bt_dificil);
+        bt_ok = findViewById(R.id.bt_ok2);
+
         String nombre = getIntent().getStringExtra("NOMBRE");
         tv_nombre.setText(nombre);
 
+
+        bt_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(dificultadElegida != 0){
+                    Intent i = new Intent(DificultadActivity.this, JuegoActivity.class);
+                    i.putExtra("DIFICULTAD", dificultadElegida);
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     public void dificultadClickeada(View v){
@@ -41,9 +55,5 @@ public class DificultadActivity extends AppCompatActivity {
                 dificultadElegida = 3;
                 break;
         }
-
-        Intent i = new Intent(DificultadActivity.this, JuegoActivity.class);
-        i.putExtra("DIFICULTAD", dificultadElegida);
-        startActivity(i);
     }
 }

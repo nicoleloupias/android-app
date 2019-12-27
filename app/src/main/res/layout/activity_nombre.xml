@@ -53,11 +53,11 @@
         android:id="@+id/iv_letras"
         android:layout_width="111dp"
         android:layout_height="57dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginBottom="92dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_ok"
         app:srcCompat="@drawable/letras" />
 
     <ImageView
@@ -65,10 +65,10 @@
         android:layout_width="84dp"
         android:layout_height="88dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv_letras"
-        app:layout_constraintTop_toBottomOf="@+id/bt_ok"
         app:srcCompat="@drawable/lapiz" />
 </androidx.constraintlayout.widget.ConstraintLayout>

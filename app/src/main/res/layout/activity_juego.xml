@@ -12,7 +12,9 @@
         android:layout_width="77dp"
         android:layout_height="94dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_muneco"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/reloj" />
@@ -21,8 +23,8 @@
         android:id="@+id/tv_temporizador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
         android:text="temporizador"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/iv_reloj"
@@ -30,12 +32,12 @@
 
     <ImageView
         android:id="@+id/iv_recuadroFallos"
-        android:layout_width="201dp"
-        android:layout_height="247dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="223dp"
+        android:layout_height="235dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_palabra"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/recuadro_fallos" />
 
     <TextView
@@ -56,207 +58,123 @@
         android:layout_width="142dp"
         android:layout_height="226dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_palabra"
+        app:layout_constraintEnd_toStartOf="@+id/iv_recuadroFallos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_reloj"
         app:srcCompat="@drawable/munequito_estructura" />
-
-    <LinearLayout
-        android:id="@+id/cuartaFila"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/terceraFila"
-        app:layout_constraintVertical_bias="0.0">
-
-        <Button
-            android:id="@+id/bt_u"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:background="@drawable/botonletra"
-            android:fontFamily="@font/pigment"
-            android:text="@string/U"
-            android:textColor="#FFFFFF"
-            android:textSize="47sp" />
-
-        <Button
-            android:id="@+id/bt_V"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:background="@drawable/botonletra"
-            android:fontFamily="@font/pigment"
-            android:text="@string/V"
-            android:textColor="#FFFFFF"
-            android:textSize="47sp" />
-
-        <Button
-            android:id="@+id/bt_w"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:background="@drawable/botonletra"
-            android:fontFamily="@font/pigment"
-            android:text="@string/W"
-            android:textColor="#FFFFFF"
-            android:textSize="47sp" />
-
-        <Button
-            android:id="@+id/bt_x"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:background="@drawable/botonletra"
-            android:fontFamily="@font/pigment"
-            android:text="@string/X"
-            android:textColor="#FFFFFF"
-            android:textSize="47sp" />
-
-        <Button
-            android:id="@+id/bt_Y"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:background="@drawable/botonletra"
-            android:fontFamily="@font/pigment"
-            android:text="@string/Y"
-            android:textColor="#FFFFFF"
-            android:textSize="47sp" />
-
-        <Button
-            android:id="@+id/bt_z"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:background="@drawable/botonletra"
-            android:fontFamily="@font/pigment"
-            android:text="@string/Z"
-            android:textColor="#FFFFFF"
-            android:textSize="47sp" />
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/tv_palabra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/pigment"
         android:text="@string/tv_palabra"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/primeraFila"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_recuadroFallos" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
-        android:id="@+id/segundaFila"
+        android:id="@+id/primeraFila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@id/terceraFila"
+        app:layout_constraintBottom_toTopOf="@+id/segundaFila"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/primeraFila"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/bt_h"
+            android:id="@+id/bt_a"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/H"
+            android:text="@string/A"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_i"
+            android:id="@+id/bt_b"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/I"
+            android:text="@string/B"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_j"
+            android:id="@+id/bt_c"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/J"
+            android:text="@string/C"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_k"
+            android:id="@+id/bt_d"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/K"
+            android:text="@string/D"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_l"
+            android:id="@+id/bt_e"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/L"
+            android:text="@string/E"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_m"
+            android:id="@+id/bt_f"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/M"
+            android:text="@string/F"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_n"
+            android:id="@+id/bt_G"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/N"
+            android:text="@string/G"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/terceraFila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cuartaFila"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/segundaFila"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <Button
@@ -340,92 +258,172 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/primeraFila"
+        android:id="@+id/segundaFila"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/terceraFila"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_palabra">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/bt_a"
+            android:id="@+id/bt_h"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/A"
+            android:text="@string/H"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_b"
+            android:id="@+id/bt_i"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/B"
+            android:text="@string/I"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_c"
+            android:id="@+id/bt_j"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/C"
+            android:text="@string/J"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_d"
+            android:id="@+id/bt_k"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/D"
+            android:text="@string/K"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_e"
+            android:id="@+id/bt_l"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/E"
+            android:text="@string/L"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_f"
+            android:id="@+id/bt_m"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/F"
+            android:text="@string/M"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
 
         <Button
-            android:id="@+id/bt_G"
+            android:id="@+id/bt_n"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
-            android:text="@string/G"
+            android:text="@string/N"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cuartaFila"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/bt_u"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:background="@drawable/botonletra"
+            android:fontFamily="@font/pigment"
+            android:text="@string/U"
+            android:textColor="#FFFFFF"
+            android:textSize="47sp" />
+
+        <Button
+            android:id="@+id/bt_V"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:background="@drawable/botonletra"
+            android:fontFamily="@font/pigment"
+            android:text="@string/V"
+            android:textColor="#FFFFFF"
+            android:textSize="47sp" />
+
+        <Button
+            android:id="@+id/bt_w"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:background="@drawable/botonletra"
+            android:fontFamily="@font/pigment"
+            android:text="@string/W"
+            android:textColor="#FFFFFF"
+            android:textSize="47sp" />
+
+        <Button
+            android:id="@+id/bt_x"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:background="@drawable/botonletra"
+            android:fontFamily="@font/pigment"
+            android:text="@string/X"
+            android:textColor="#FFFFFF"
+            android:textSize="47sp" />
+
+        <Button
+            android:id="@+id/bt_Y"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:background="@drawable/botonletra"
+            android:fontFamily="@font/pigment"
+            android:text="@string/Y"
+            android:textColor="#FFFFFF"
+            android:textSize="47sp" />
+
+        <Button
+            android:id="@+id/bt_z"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:background="@drawable/botonletra"
+            android:fontFamily="@font/pigment"
+            android:text="@string/Z"
+            android:textColor="#FFFFFF"
+            android:textSize="47sp" />
+
     </LinearLayout>
 
 

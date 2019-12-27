@@ -49,19 +49,20 @@ public class DificultadActivity extends AppCompatActivity {
          switch (v.getId()){
             case R.id.bt_facil:
                 bt_facil.setBackground(getResources().getDrawable(R.drawable.botonrellenado2));
-                bt_normal.setBackground(getResources().getDrawable(R.drawable.boton2));
-                bt_dificil.setBackground(getResources().getDrawable(R.drawable.boton2));
+                bt_normal.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));
+                bt_dificil.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));
                 dificultadElegida = 1;
                 break;
             case R.id.bt_normal:
                 bt_normal.setBackground(getResources().getDrawable(R.drawable.botonrellenado2));
-                bt_facil.setBackground(getResources().getDrawable(R.drawable.boton2));
+                bt_facil.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));
+                bt_dificil.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));
                 dificultadElegida = 2;
                 break;
             case R.id.bt_dificil:
                 bt_dificil.setBackground(getResources().getDrawable(R.drawable.botonrellenado2));
-                bt_normal.setBackground(getResources().getDrawable(R.drawable.boton2));
-                bt_facil.setBackground(getResources().getDrawable(R.drawable.boton2));
+                bt_normal.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));
+                bt_facil.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));
                 dificultadElegida = 3;
                 break;
         }

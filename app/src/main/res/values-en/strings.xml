@@ -7,6 +7,7 @@
     <string name="tv_nombre"></string>
     <string name="bt_ok">OK</string>
     <string name="nombre_vacio">Write your name to continue</string>
+    <string name="dificultad_vacia">Please, choose a difficulty to continue</string>
     <string name="tv_elegirDificultad">Choose the difficulty</string>
     <string name="bt_facil">Easy</string>
     <string name="bt_normal">Normal</string>

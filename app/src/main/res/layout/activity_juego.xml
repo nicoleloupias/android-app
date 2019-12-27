@@ -452,7 +452,7 @@
         android:layout_marginTop="52dp"
         android:fontFamily="@font/pigment"
         android:text="TextView"
-        android:textColor="#E67D74"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/iv_recuadroFallos"
         app:layout_constraintTop_toTopOf="@+id/iv_recuadroFallos" />

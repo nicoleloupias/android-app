@@ -6,6 +6,7 @@
     <string name="et_nombre"></string>
     <string name="bt_ok">OK</string>
     <string name="nombre_vacio">Escribe tu nombre para poder continuar</string>
+    <string name="dificultad_vacia">Por favor, elige una dificultad para poder continuar</string>
     <string name="tv_elegirDificultad">Elige la dificultad</string>
     <string name="bt_facil">Fácil</string>
     <string name="bt_normal">Normal</string>

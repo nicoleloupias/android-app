@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DificultadActivity extends AppCompatActivity {
     private TextView tv_nombre;
@@ -37,6 +38,8 @@ public class DificultadActivity extends AppCompatActivity {
                     Intent i = new Intent(DificultadActivity.this, JuegoActivity.class);
                     i.putExtra("DIFICULTAD", dificultadElegida);
                     startActivity(i);
+                }else{
+                    Toast.makeText(DificultadActivity.this, getText(R.string.dificultad_vacia), Toast.LENGTH_SHORT).show();
                 }
             }
         });

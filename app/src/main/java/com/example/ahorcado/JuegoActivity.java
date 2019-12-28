@@ -16,18 +16,18 @@ public class JuegoActivity extends AppCompatActivity {
     private ImageView iv_muneco;
     private TextView tv_palabra;
     private TextView tv_letrasFalladas;
-    private TextView tvTimer;
+    private TextView tv_timer;
     private String palabraElegida;
     private String[] arrayPalabras;
     private Random random;
     private char[] arrayGuiones;
     private char[] arrayPalabra;
     private int intentos = 0;
-    private String arrayDeGuiones;
+    private boolean juegoTerminado = false;
 
-    private static final long NUMBER_MILLIS = 10000;
-    private static final String MILLISECONDS_FORMAT = "%03d";
-    private int secondsLeft = 0;
+    private static long NUMERO_SEGUNDOS = 30000;
+    private static final String SEGUNDOS_FORMAT = "%02d";
+    private int segundosQueQuedan = 0;
 
 
     @Override
@@ -36,7 +36,7 @@ public class JuegoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
         tv_palabra = findViewById(R.id.tv_palabra);
         tv_letrasFalladas = findViewById(R.id.tv_letrasFalladas);
-        tvTimer = findViewById(R.id.tv_temporizador);
+        tv_timer = findViewById(R.id.tv_temporizador);
         iv_muneco = findViewById(R.id.iv_muneco);
         random = new Random();
         int dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
@@ -44,12 +44,15 @@ public class JuegoActivity extends AppCompatActivity {
         switch (dificultad){
             case 1:
                 arrayPalabras = getResources().getStringArray(R.array.array_facil);
+                NUMERO_SEGUNDOS = 30000;
                 break;
             case 2:
                 arrayPalabras = getResources().getStringArray(R.array.array_normal);
+                NUMERO_SEGUNDOS = 25000;
                 break;
             case 3:
                 arrayPalabras = getResources().getStringArray(R.array.array_dificil);
+                NUMERO_SEGUNDOS = 20000;
                 break;
         }
         palabraElegida = arrayPalabras[random.nextInt(arrayPalabras.length)].toUpperCase();
@@ -60,25 +63,25 @@ public class JuegoActivity extends AppCompatActivity {
 
 
 //
-        new CountDownTimer(NUMBER_MILLIS, 1) {
-
+        new CountDownTimer(NUMERO_SEGUNDOS, 1) {
             public void onTick(long millisUntilFinished) {
-
-                if (Math.round((float)millisUntilFinished / 1000.0f) != secondsLeft){
-                    secondsLeft = Math.round((float)millisUntilFinished / 1000.0f);
+                if (Math.round((float)millisUntilFinished / 1000.0f) != segundosQueQuedan){
+                    segundosQueQuedan = Math.round((float)millisUntilFinished / 1000.0f);
                 }
-                long roundMillis = secondsLeft * 1000;
-                if(roundMillis==NUMBER_MILLIS){
-                    tvTimer.setText(secondsLeft
-                            + "." + String.format(MILLISECONDS_FORMAT, 0));
+                long redondear = segundosQueQuedan * 100;
+                if(redondear==NUMERO_SEGUNDOS){
+                    tv_timer.setText(segundosQueQuedan
+                            + ":" + String.format(SEGUNDOS_FORMAT, 0));
                 }else {
-                    tvTimer.setText("0"+secondsLeft
-                            + "." + String.format(MILLISECONDS_FORMAT, millisUntilFinished % 1000));
+                    tv_timer.setText(segundosQueQuedan
+                            + ":" + String.format(SEGUNDOS_FORMAT, millisUntilFinished % 100));
                 }
             }
 
             public void onFinish() {
-                tvTimer.setText("done!");
+                tv_timer.setText("¡Has perdido! Te has quedado sin tiempo");
+                iv_muneco.setImageResource(R.drawable.munequito_fallo6);
+                juegoTerminado = true;
             }
         }.start();
     }
@@ -92,7 +95,7 @@ public class JuegoActivity extends AppCompatActivity {
     }
 
     public void letraClickeada(View v) {
-        if(intentos<6) {
+        if(intentos<6 && !juegoTerminado) {
             String letras = ((TextView) v).getText().toString();
             char letra = letras.charAt(0);
             v.setEnabled(false);

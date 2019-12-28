@@ -39,6 +39,7 @@
     <string name="X">X</string>
     <string name="Y">Y</string>
     <string name="Z">Z</string>
+
     <string-array name="array_facil">
         <item>Cerdo</item>
         <item>Cuatro</item>

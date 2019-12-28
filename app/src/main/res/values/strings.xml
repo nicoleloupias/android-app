@@ -39,29 +39,6 @@
     <string name="X">X</string>
     <string name="Y">Y</string>
     <string name="Z">Z</string>
-    <string-array name="array_normal">
-        <item>Golpear</item>
-        <item>Fallar</item>
-        <item>Disparar</item>
-        <item>Sujetar</item>
-        <item>Zanja</item>
-        <item>Albañil</item>
-        <item>Polvoron</item>
-        <item>Colador</item>
-        <item>Vajilla</item>
-        <item>Familia</item>
-        <item>Puerto</item>
-        <item>Boligrafo</item>
-        <item>Lapizero</item>
-        <item>Profesor</item>
-        <item>Montaña</item>
-        <item>Oceano</item>
-        <item>Ofender</item>
-        <item>Nobleza</item>
-        <item>Colonia</item>
-        <item>Abuela</item>
-        <item>Sirviente</item>
-    </string-array>
     <string-array name="array_facil">
         <item>Cerdo</item>
         <item>Cuatro</item>
@@ -85,6 +62,31 @@
         <item>Cura</item>
         <item>Primo</item>
     </string-array>
+
+    <string-array name="array_normal">
+        <item>Golpear</item>
+        <item>Fallar</item>
+        <item>Disparar</item>
+        <item>Sujetar</item>
+        <item>Zanja</item>
+        <item>Albañil</item>
+        <item>Polvoron</item>
+        <item>Colador</item>
+        <item>Vajilla</item>
+        <item>Familia</item>
+        <item>Puerto</item>
+        <item>Boligrafo</item>
+        <item>Lapizero</item>
+        <item>Profesor</item>
+        <item>Montaña</item>
+        <item>Oceano</item>
+        <item>Ofender</item>
+        <item>Nobleza</item>
+        <item>Colonia</item>
+        <item>Abuela</item>
+        <item>Sirviente</item>
+    </string-array>
+
     <string-array name="array_dificil">
         <item>Carruaje</item>
         <item>Terracota</item>

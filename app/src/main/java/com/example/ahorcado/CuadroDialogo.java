@@ -13,9 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CuadroDialogo {
-    private Context contexto;
     public CuadroDialogo(final Context contexto){
-        this.contexto = contexto;
         final Dialog dialogo = new Dialog(contexto);
         dialogo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogo.setCancelable(false);

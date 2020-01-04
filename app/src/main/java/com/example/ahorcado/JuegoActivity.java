@@ -2,6 +2,7 @@ package com.example.ahorcado;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -24,7 +25,6 @@ public class JuegoActivity extends AppCompatActivity {
     private char[] arrayPalabra;
     private int intentos = 0;
     private boolean juegoTerminado = false;
-
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
     private int segundosQueQuedan = 0;

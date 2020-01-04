@@ -44,7 +44,6 @@
         <item>Cerdo</item>
         <item>Cuatro</item>
         <item>Masa</item>
-        <item>Yema</item>
         <item>Jabon</item>
         <item>Kilo</item>
         <item>Melon</item>
@@ -75,7 +74,6 @@
         <item>Colador</item>
         <item>Vajilla</item>
         <item>Familia</item>
-        <item>Puerto</item>
         <item>Boligrafo</item>
         <item>Lapizero</item>
         <item>Profesor</item>
@@ -107,7 +105,6 @@
         <item>Comerciante</item>
         <item>Callejero</item>
         <item>Matricula</item>
-        <item>Justificacion</item>
         <item>Omnivoro</item>
         <item>Exhumacion</item>
     </string-array>

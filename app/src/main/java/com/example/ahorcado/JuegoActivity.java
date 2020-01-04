@@ -3,10 +3,10 @@ package com.example.ahorcado;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +24,7 @@ public class JuegoActivity extends AppCompatActivity {
     private char[] arrayPalabra;
     private int intentos = 0;
     private boolean juegoTerminado = false;
+    MediaPlayer mpClickLetra;
 
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
@@ -40,6 +41,7 @@ public class JuegoActivity extends AppCompatActivity {
         iv_muneco = findViewById(R.id.iv_muneco);
         random = new Random();
         int dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
+        mpClickLetra = MediaPlayer.create(this, R.raw.click_letra);
 
         switch (dificultad){
             case 1:
@@ -102,6 +104,7 @@ public class JuegoActivity extends AppCompatActivity {
             v.setBackground(getResources().getDrawable(R.drawable.botonletradisabled));
             ((TextView) v).setTextColor(Color.rgb(102, 102, 102));
             comprobarYReemplazar(letra);
+            mpClickLetra.start();
         }
     }
 

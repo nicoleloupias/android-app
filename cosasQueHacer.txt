@@ -1,8 +1,17 @@
 COSAS QUE HACER:
 [X] Diseño layout de elegir dificultad
-[] Guardar el nombre del usuario que se inserta
-[] Animacion de botones
-[] Diseño layout de juego/palabra
-[] Buscar palabras para cada dificultad
-[] Crear temporizador dependiendo de la dificultad
-[] Cada fallo, agregar la letra al cuadradito de errores y actualizar la imagen del muñeco
+[X] Guardar el nombre del usuario que se inserta
+[X] Animacion de botones. faltan algunos
+[X] Diseño layout de juego/palabra
+[X] Buscar palabras para cada dificultad
+[X] Crear temporizador dependiendo de la dificultad
+[X] Cada fallo, agregar la letra al cuadradito de errores y actualizar la imagen del muñeco
+[] Hacer modal cuando pierda
+[] Hacer modal cuando gane
+[] Colocar bien temporizador
+[X] Array palabras en ingles
+[] Base de datos externa
+[] Añadir los sonidos
+[] Añadir modal de pista
+[] Que funcione guardar partida con el jugador
+[] Cambiar color barrita nombre

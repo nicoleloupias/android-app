@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ahorcado</string>
+    <string name="app_name">Hangman</string>
     <string name="bt_jugar">Play</string>
     <string name="et_nombre">Name</string>
     <string name="tv_introducirNombre">What\'s your name?</string>
@@ -12,70 +12,102 @@
     <string name="bt_facil">Easy</string>
     <string name="bt_normal">Normal</string>
     <string name="bt_dificil">Hard</string>
-    <string-array name="array_normal">
-        <item>1</item>
-        <item>23</item>
-        <item>33</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
+
+    <string name="tv_palabra">_ _ _ _ _</string>
+    <string name="A">A</string>
+    <string name="B">B</string>
+    <string name="C">C</string>
+    <string name="D">D</string>
+    <string name="E">E</string>
+    <string name="F">F</string>
+    <string name="G">G</string>
+    <string name="H">H</string>
+    <string name="I">I</string>
+    <string name="J">J</string>
+    <string name="K">K</string>
+    <string name="L">L</string>
+    <string name="M">M</string>
+    <string name="N">N</string>
+    <string name="ENE">Ñ</string>
+    <string name="O">O</string>
+    <string name="P">P</string>
+    <string name="Q">Q</string>
+    <string name="R">R</string>
+    <string name="S">S</string>
+    <string name="T">T</string>
+    <string name="U">U</string>
+    <string name="V">V</string>
+    <string name="W">W</string>
+    <string name="X">X</string>
+    <string name="Y">Y</string>
+    <string name="Z">Z</string>
+
     <string-array name="array_facil">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+        <item>Eyes</item>
+        <item>Tree</item>
+        <item>Circle</item>
+        <item>Star</item>
+        <item>Apple</item>
+        <item>Book</item>
+        <item>Jacket</item>
+        <item>Horse</item>
+        <item>Church</item>
+        <item>Unicorn</item>
+        <item>Baby</item>
+        <item>Muscle</item>
+        <item>Beautiful</item>
+        <item>Water</item>
+        <item>Children</item>
+        <item>Floor</item>
+        <item>Natural</item>
+        <item>Earth</item>
+        <item>Heart</item>
+        <item>Lights</item>
     </string-array>
+
+    <string-array name="array_normal">
+        <item>Tobacco</item>
+        <item>Damage</item>
+        <item>Exchange</item>
+        <item>Garbage</item>
+        <item>Mattress</item>
+        <item>Baseball</item>
+        <item>Treasure</item>
+        <item>Mailman</item>
+        <item>Outside</item>
+        <item>Cowboy</item>
+        <item>Stomach</item>
+        <item>Suitcase</item>
+        <item>Newspaper</item>
+        <item>Silverware</item>
+        <item>Telephone</item>
+        <item>Snowball</item>
+        <item>Popcorn</item>
+        <item>Gate</item>
+        <item>Waist</item>
+        <item>Plate</item>
+    </string-array>
+
     <string-array name="array_dificil">
-        <item>1</item>
-        <item>Hola</item>
-        <item>Holaa</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
+        <item>Kayak</item>
+        <item>Espionage</item>
+        <item>Galvanize</item>
+        <item>Bandwagon</item>
+        <item>Lawyer</item>
+        <item>Microwave</item>
+        <item>Pneumonia</item>
+        <item>Jiujitsu</item>
+        <item>Witchcraft</item>
+        <item>Unknown</item>
+        <item>Syndrome</item>
+        <item>Subway</item>
+        <item>Awkward</item>
+        <item>Haphazard</item>
+        <item>Ivory</item>
+        <item>Swivel</item>
+        <item>Rythmic</item>
+        <item>Asteroid</item>
+        <item>Rationed</item>
+        <item>Bookworm</item>
     </string-array>
 </resources>

@@ -2,6 +2,7 @@ package com.example.ahorcado;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class JuegoActivity extends AppCompatActivity {
     private char[] arrayPalabra;
     private int intentos = 0;
     private boolean juegoTerminado = false;
+
     MediaPlayer mpClickLetra;
 
     private static long NUMERO_SEGUNDOS = 30000;

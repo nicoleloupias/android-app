@@ -36,6 +36,7 @@ public class JuegoActivity extends AppCompatActivity {
     private static final String SEGUNDOS_FORMAT = "%02d";
     private int segundosQueQuedan = 0;
 
+    CountDownTimer temporizador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +73,7 @@ public class JuegoActivity extends AppCompatActivity {
         arrayGuiones = numeroGuiones().toCharArray();
         arrayPalabra = palabraElegida.toCharArray();
 
-
-
-//
-        new CountDownTimer(NUMERO_SEGUNDOS, 1) {
+         temporizador = new CountDownTimer(NUMERO_SEGUNDOS, 1) {
             public void onTick(long millisUntilFinished) {
                 if (Math.round((float)millisUntilFinished / 1000.0f) != segundosQueQuedan){
                     segundosQueQuedan = Math.round((float)millisUntilFinished / 1000.0f);
@@ -158,6 +156,7 @@ public class JuegoActivity extends AppCompatActivity {
             case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 new CuadroDialogo(contexto);
+                temporizador.cancel();
                 break;
         }
     }

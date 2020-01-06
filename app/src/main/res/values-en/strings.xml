@@ -13,7 +13,12 @@
     <string name="bt_normal">Normal</string>
     <string name="bt_dificil">Hard</string>
 
+    <string name="bt_reiniciar">Play again</string>
+    <string name="bt_ranking">Ranking</string>
+    <string name="bt_cambiarDificultad">Change the difficulty</string>
+
     <string name="tv_palabra">_ _ _ _ _</string>
+
     <string name="A">A</string>
     <string name="B">B</string>
     <string name="C">C</string>

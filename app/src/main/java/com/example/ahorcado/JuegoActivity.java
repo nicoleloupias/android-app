@@ -29,6 +29,8 @@ public class JuegoActivity extends AppCompatActivity {
     private MediaPlayer mpLetraIncorrecta;
     private MediaPlayer mpLetraCorrecta;
 
+    Context contexto;
+
 
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
@@ -45,8 +47,11 @@ public class JuegoActivity extends AppCompatActivity {
         iv_muneco = findViewById(R.id.iv_muneco);
         random = new Random();
         int dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
+
         mpLetraIncorrecta = MediaPlayer.create(this, R.raw.fallo);
         mpLetraCorrecta = MediaPlayer.create(this, R.raw.acierto);
+
+        contexto = this;
 
         switch (dificultad){
             case 1:
@@ -89,6 +94,7 @@ public class JuegoActivity extends AppCompatActivity {
                 tv_timer.setText("¡Has perdido! Te has quedado sin tiempo");
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 juegoTerminado = true;
+                new CuadroDialogo(contexto);
             }
         }.start();
     }
@@ -151,6 +157,7 @@ public class JuegoActivity extends AppCompatActivity {
                 break;
             case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
+                new CuadroDialogo(contexto);
                 break;
         }
     }

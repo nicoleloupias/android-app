@@ -28,6 +28,7 @@
         android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="@string/et_nombre"
+        android:theme="@style/MyEditText"
         android:inputType="textPersonName"
         android:textColorHint="#7E9484"
         app:layout_constraintEnd_toEndOf="parent"

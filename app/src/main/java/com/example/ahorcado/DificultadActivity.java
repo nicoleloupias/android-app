@@ -3,6 +3,7 @@ package com.example.ahorcado;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ public class DificultadActivity extends AppCompatActivity {
     private Button bt_dificil;
     private Button bt_ok;
     private int dificultadElegida = 0;
+    private MediaPlayer sonidoClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class DificultadActivity extends AppCompatActivity {
         bt_normal = findViewById(R.id.bt_normal);
         bt_dificil = findViewById(R.id.bt_dificil);
         bt_ok = findViewById(R.id.bt_ok2);
+        sonidoClick = MediaPlayer.create(this, R.raw.click);
 
         String nombre = getIntent().getStringExtra("NOMBRE");
         tv_nombre.setText(nombre);
@@ -35,9 +38,11 @@ public class DificultadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(dificultadElegida != 0){
+                    sonidoClick.start();
                     Intent i = new Intent(DificultadActivity.this, JuegoActivity.class);
                     i.putExtra("DIFICULTAD", dificultadElegida);
                     startActivity(i);
+
                 }else{
                     Toast.makeText(DificultadActivity.this, getText(R.string.dificultad_vacia), Toast.LENGTH_SHORT).show();
                 }

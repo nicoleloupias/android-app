@@ -36,6 +36,8 @@ public class JuegoActivity extends AppCompatActivity {
 
     private MediaPlayer mpLetraIncorrecta;
     private MediaPlayer mpLetraCorrecta;
+    private MediaPlayer mpPartidaGanada;
+    private MediaPlayer mpPartidaPerdida;
 
     Context contexto;
 
@@ -59,6 +61,9 @@ public class JuegoActivity extends AppCompatActivity {
 
         mpLetraIncorrecta = MediaPlayer.create(this, R.raw.fallo);
         mpLetraCorrecta = MediaPlayer.create(this, R.raw.acierto);
+        mpPartidaGanada = MediaPlayer.create(this, R.raw.gana);
+        mpPartidaPerdida = MediaPlayer.create(this, R.raw.pierde);
+
         contexto = this;
 
         dialogo = new Dialog(this);

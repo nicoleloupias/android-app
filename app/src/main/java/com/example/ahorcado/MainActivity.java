@@ -15,15 +15,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button bt_jugar;
+    private MediaPlayer sonidoClick;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bt_jugar = findViewById(R.id.bt_jugar);
+        sonidoClick = MediaPlayer.create(this, R.raw.click);
 
         bt_jugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sonidoClick.start();
                 Intent intent = new Intent(MainActivity.this, NombreActivity.class);
                 startActivity(intent);
             }

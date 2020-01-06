@@ -26,7 +26,9 @@ public class JuegoActivity extends AppCompatActivity {
     private int intentos = 0;
     private boolean juegoTerminado = false;
 
-    MediaPlayer mpClickLetra;
+    private MediaPlayer mpLetraIncorrecta;
+    private MediaPlayer mpLetraCorrecta;
+
 
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
@@ -43,16 +45,17 @@ public class JuegoActivity extends AppCompatActivity {
         iv_muneco = findViewById(R.id.iv_muneco);
         random = new Random();
         int dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
-        mpClickLetra = MediaPlayer.create(this, R.raw.click_letra);
+        mpLetraIncorrecta = MediaPlayer.create(this, R.raw.fallo);
+        mpLetraCorrecta = MediaPlayer.create(this, R.raw.acierto);
 
         switch (dificultad){
             case 1:
                 arrayPalabras = getResources().getStringArray(R.array.array_facil);
-                NUMERO_SEGUNDOS = 30000;
+                NUMERO_SEGUNDOS = 25000;
                 break;
             case 2:
                 arrayPalabras = getResources().getStringArray(R.array.array_normal);
-                NUMERO_SEGUNDOS = 25000;
+                NUMERO_SEGUNDOS = 22000;
                 break;
             case 3:
                 arrayPalabras = getResources().getStringArray(R.array.array_dificil);
@@ -106,7 +109,6 @@ public class JuegoActivity extends AppCompatActivity {
             v.setBackground(getResources().getDrawable(R.drawable.botonletradisabled));
             ((TextView) v).setTextColor(Color.rgb(102, 102, 102));
             comprobarYReemplazar(letra);
-            mpClickLetra.start();
         }
     }
 
@@ -121,11 +123,14 @@ public class JuegoActivity extends AppCompatActivity {
         }
         if(!acierto){
             intentos++;
+            mpLetraIncorrecta.start();
             if(intentos==1){
                 tv_letrasFalladas.setText(String.valueOf(l));
             }else {
                 tv_letrasFalladas.setText(tv_letrasFalladas.getText().toString() + "   " + String.valueOf(l));
             }
+        }else{
+            mpLetraCorrecta.start();
         }
 
         switch (intentos){

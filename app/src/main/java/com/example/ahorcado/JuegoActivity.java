@@ -32,6 +32,7 @@ public class JuegoActivity extends AppCompatActivity {
     private Dialog dialogo;
     private Button bt_reiniciar, bt_ranking, bt_cambiarDificultad;
     private TextView tv_puntuacion;
+    private TextView tv_resultado;
 
     private MediaPlayer mpLetraIncorrecta;
     private MediaPlayer mpLetraCorrecta;
@@ -100,7 +101,7 @@ public class JuegoActivity extends AppCompatActivity {
                 tv_timer.setText("¡Has perdido! Te has quedado sin tiempo");
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 juegoTerminado = true;
-                new CuadroDialogo(contexto);
+                mostrarDialogo();
             }
         }.start();
     }
@@ -175,6 +176,13 @@ public class JuegoActivity extends AppCompatActivity {
         bt_cambiarDificultad = dialogo.findViewById(R.id.bt_cambiarDificultad);
         bt_reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
         tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
+        tv_resultado = dialogo.findViewById(R.id.tv_resultado);
+
+        //aqui habria un if con el booleano pasado x parametro y dependiendo de eso, se pilla un R.string distinto para q tenga traduccion
+        // ya  he metido en los strings las dos traducciones se llaman R.string.textoGanado y fallado
+
+//el numero ese es una prueba, ahi se concatenaria el numero de la puntuacion
+        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + 12510 + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

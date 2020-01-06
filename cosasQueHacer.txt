@@ -8,10 +8,10 @@ COSAS QUE HACER:
 [X] Cada fallo, agregar la letra al cuadradito de errores y actualizar la imagen del muñeco
 [] Hacer modal cuando pierda
 [] Hacer modal cuando gane
-[] Colocar bien temporizador
+[X] Colocar bien temporizador
 [X] Array palabras en ingles
 [] Base de datos externa
 [] Añadir los sonidos
 [] Añadir modal de pista
 [] Que funcione guardar partida con el jugador
-[] Cambiar color barrita nombre
+[X] Cambiar color barrita nombre

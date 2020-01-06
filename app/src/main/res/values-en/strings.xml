@@ -16,6 +16,8 @@
     <string name="bt_reiniciar">Play again</string>
     <string name="bt_ranking">Ranking</string>
     <string name="bt_cambiarDificultad">Change the difficulty</string>
+    <string name="tv_puntuacion">0</string>
+    <string name="textoPuntuacion">Your punctuation is: </string>
 
     <string name="tv_palabra">_ _ _ _ _</string>
 

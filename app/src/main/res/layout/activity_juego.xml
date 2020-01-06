@@ -7,30 +7,36 @@
     android:background="@drawable/fondoverde"
     tools:context=".JuegoActivity">
 
-    <ImageView
-        android:id="@+id/iv_reloj"
-        android:layout_width="77dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/iv_muneco"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/reloj" />
-
-    <TextView
-        android:id="@+id/tv_temporizador"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/pigment"
-        android:text="temporizador"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/iv_reloj"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="125dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_reloj"
+            android:layout_width="81dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            app:srcCompat="@drawable/reloj" />
+
+        <TextView
+            android:id="@+id/tv_temporizador"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/pigment"
+            android:text="temporizador"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/iv_recuadroFallos"
@@ -40,6 +46,7 @@
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/tv_palabra"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="@drawable/recuadro_fallos" />
 
     <TextView
@@ -67,6 +74,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_palabra"
         app:layout_constraintEnd_toStartOf="@+id/iv_recuadroFallos"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="@drawable/munequito_estructura" />
 
     <TextView
@@ -292,9 +300,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/H"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
@@ -304,9 +312,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/I"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
@@ -316,9 +324,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/J"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
@@ -328,9 +336,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/K"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
@@ -340,9 +348,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/L"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
@@ -352,9 +360,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/M"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />
@@ -364,9 +372,9 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="47dp"
             android:layout_height="47dp"
-            android:onClick="letraClickeada"
             android:background="@drawable/botonletra"
             android:fontFamily="@font/pigment"
+            android:onClick="letraClickeada"
             android:text="@string/N"
             android:textColor="#FFFFFF"
             android:textSize="47sp" />

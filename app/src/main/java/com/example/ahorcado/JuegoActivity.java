@@ -155,6 +155,7 @@ public class JuegoActivity extends AppCompatActivity {
                 break;
             case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
+
                 new CuadroDialogo(contexto);
                 temporizador.cancel();
                 break;

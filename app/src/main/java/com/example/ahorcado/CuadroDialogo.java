@@ -1,6 +1,5 @@
 package com.example.ahorcado;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CuadroDialogo {
@@ -20,8 +18,10 @@ public class CuadroDialogo {
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogo.setContentView(R.layout.cuadro_dialogo);
 
-        // TextView resultado = dialogo.findViewById(R.id.tv_resultado);
-        // TextView puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
+        TextView puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
+        int puntuacionTotal = 0;
+
+        puntuacion.setText(R.string.textoPuntuacion + puntuacionTotal);
         Button reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
         Button ranking = dialogo.findViewById(R.id.bt_ranking);
         Button cambiarDificultad = dialogo.findViewById(R.id.bt_cambiarDificultad);

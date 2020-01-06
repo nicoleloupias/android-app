@@ -2,12 +2,16 @@ package com.example.ahorcado;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +29,9 @@ public class JuegoActivity extends AppCompatActivity {
     private char[] arrayPalabra;
     private int intentos = 0;
     private boolean juegoTerminado = false;
+    private Dialog dialogo;
+    private Button bt_reiniciar, bt_ranking, bt_cambiarDificultad;
+    private TextView tv_puntuacion;
 
     private MediaPlayer mpLetraIncorrecta;
     private MediaPlayer mpLetraCorrecta;
@@ -51,8 +58,9 @@ public class JuegoActivity extends AppCompatActivity {
 
         mpLetraIncorrecta = MediaPlayer.create(this, R.raw.fallo);
         mpLetraCorrecta = MediaPlayer.create(this, R.raw.acierto);
-
         contexto = this;
+
+        dialogo = new Dialog(this);
 
         switch (dificultad){
             case 1:
@@ -155,10 +163,41 @@ public class JuegoActivity extends AppCompatActivity {
                 break;
             case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
-
-                new CuadroDialogo(contexto);
+                mostrarDialogo();
                 temporizador.cancel();
                 break;
         }
+    }
+    private void mostrarDialogo(){
+        dialogo.setContentView(R.layout.cuadro_dialogo);
+        dialogo.setCancelable(false);
+        bt_ranking = dialogo.findViewById(R.id.bt_ranking);
+        bt_cambiarDificultad = dialogo.findViewById(R.id.bt_cambiarDificultad);
+        bt_reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
+        tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
+        bt_reiniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(contexto,MainActivity.class);
+                contexto.startActivity(i);
+            }
+        });
+        bt_ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(contexto,DificultadActivity.class);
+                contexto.startActivity(i);
+            }
+        });
+        bt_cambiarDificultad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(contexto,DificultadActivity.class);
+                contexto.startActivity(i);
+            }
+        });
+
+        dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogo.show();
     }
 }

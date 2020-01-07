@@ -10,12 +10,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class JuegoActivity extends AppCompatActivity {
     private ImageView iv_muneco;
@@ -33,14 +36,12 @@ public class JuegoActivity extends AppCompatActivity {
     private Button bt_reiniciar, bt_ranking, bt_cambiarDificultad;
     private TextView tv_puntuacion;
     private TextView tv_resultado;
+    private boolean partidaGanada;
 
     private MediaPlayer mpLetraIncorrecta;
     private MediaPlayer mpLetraCorrecta;
     private MediaPlayer mpPartidaGanada;
     private MediaPlayer mpPartidaPerdida;
-
-    Context contexto;
-
 
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
@@ -64,22 +65,20 @@ public class JuegoActivity extends AppCompatActivity {
         mpPartidaGanada = MediaPlayer.create(this, R.raw.gana);
         mpPartidaPerdida = MediaPlayer.create(this, R.raw.pierde);
 
-        contexto = this;
-
         dialogo = new Dialog(this);
 
         switch (dificultad){
             case 1:
                 arrayPalabras = getResources().getStringArray(R.array.array_facil);
-                NUMERO_SEGUNDOS = 25000;
+                NUMERO_SEGUNDOS = 99000;
                 break;
             case 2:
                 arrayPalabras = getResources().getStringArray(R.array.array_normal);
-                NUMERO_SEGUNDOS = 22000;
+                NUMERO_SEGUNDOS = 99000;
                 break;
             case 3:
                 arrayPalabras = getResources().getStringArray(R.array.array_dificil);
-                NUMERO_SEGUNDOS = 20000;
+                NUMERO_SEGUNDOS = 99000;
                 break;
         }
         palabraElegida = arrayPalabras[random.nextInt(arrayPalabras.length)].toUpperCase();
@@ -103,7 +102,7 @@ public class JuegoActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                tv_timer.setText("¡Has perdido! Te has quedado sin tiempo");
+                tv_timer.setText("0:00");
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 juegoTerminado = true;
                 mostrarDialogo();
@@ -138,6 +137,19 @@ public class JuegoActivity extends AppCompatActivity {
                 acierto = true;
             }
             tv_palabra.setText(String.valueOf(arrayGuiones));
+            if (palabraElegida.equalsIgnoreCase(tv_palabra.getText().toString())){
+                partidaGanada = true;
+                temporizador.cancel();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mostrarDialogo();
+                    }
+                }, 1500);
+
+
+            }
         }
         if(!acierto){
             intentos++;
@@ -183,30 +195,35 @@ public class JuegoActivity extends AppCompatActivity {
         tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
         tv_resultado = dialogo.findViewById(R.id.tv_resultado);
 
-        //aqui habria un if con el booleano pasado x parametro y dependiendo de eso, se pilla un R.string distinto para q tenga traduccion
-        // ya  he metido en los strings las dos traducciones se llaman R.string.textoGanado y fallado
+        if (partidaGanada){
+            tv_resultado.setText(getText(R.string.textoGanado));
+            mpPartidaGanada.start();
+        }else{
+            tv_resultado.setText(getText(R.string.textoPerdido));
+            mpPartidaPerdida.start();
+        }
 
 //el numero ese es una prueba, ahi se concatenaria el numero de la puntuacion
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + 12510 + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(contexto,MainActivity.class);
-                contexto.startActivity(i);
+                Intent i = new Intent(JuegoActivity.this,MainActivity.class);
+                startActivity(i);
             }
         });
         bt_ranking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(contexto,DificultadActivity.class);
-                contexto.startActivity(i);
+                Intent i = new Intent(JuegoActivity.this,DificultadActivity.class);
+                startActivity(i);
             }
         });
         bt_cambiarDificultad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(contexto,DificultadActivity.class);
-                contexto.startActivity(i);
+                Intent i = new Intent(JuegoActivity.this,DificultadActivity.class);
+                startActivity(i);
             }
         });
 

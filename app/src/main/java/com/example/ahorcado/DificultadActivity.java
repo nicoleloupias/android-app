@@ -12,10 +12,7 @@ import android.widget.Toast;
 
 public class DificultadActivity extends AppCompatActivity {
     private TextView tv_nombre;
-    private Button bt_facil;
-    private Button bt_normal;
-    private Button bt_dificil;
-    private Button bt_ok;
+    private Button bt_facil, bt_normal, bt_dificil, bt_ok;
     private int dificultadElegida = 0;
     private MediaPlayer sonidoClick;
 

@@ -21,7 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class JuegoActivity extends AppCompatActivity {
-    private ImageView iv_muneco;
+    private ImageView iv_muneco,  iv_carita;
     private TextView tv_palabra, tv_letrasFalladas, tv_timer, tv_puntuacion, tv_resultado;
     private String palabraElegida;
     private String[] arrayPalabras;
@@ -37,7 +37,7 @@ public class JuegoActivity extends AppCompatActivity {
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
     private int segundosQueQuedan = 0;
-
+    private long puntuacion = 0;
     CountDownTimer temporizador;
 
     @Override
@@ -61,15 +61,15 @@ public class JuegoActivity extends AppCompatActivity {
         switch (dificultad){
             case 1:
                 arrayPalabras = getResources().getStringArray(R.array.array_facil);
-                NUMERO_SEGUNDOS = 99000;
+                NUMERO_SEGUNDOS = 25000;
                 break;
             case 2:
                 arrayPalabras = getResources().getStringArray(R.array.array_normal);
-                NUMERO_SEGUNDOS = 99000;
+                NUMERO_SEGUNDOS = 22000;
                 break;
             case 3:
                 arrayPalabras = getResources().getStringArray(R.array.array_dificil);
-                NUMERO_SEGUNDOS = 99000;
+                NUMERO_SEGUNDOS = 20000;
                 break;
         }
         palabraElegida = arrayPalabras[random.nextInt(arrayPalabras.length)].toUpperCase();
@@ -78,9 +78,9 @@ public class JuegoActivity extends AppCompatActivity {
         arrayPalabra = palabraElegida.toCharArray();
 
          temporizador = new CountDownTimer(NUMERO_SEGUNDOS, 1) {
-            public void onTick(long millisUntilFinished) {
-                if (Math.round((float)millisUntilFinished / 1000.0f) != segundosQueQuedan){
-                    segundosQueQuedan = Math.round((float)millisUntilFinished / 1000.0f);
+            public void onTick(long millisHastaFinalizar) {
+                if (Math.round((float)millisHastaFinalizar / 1000.0f) != segundosQueQuedan){
+                    segundosQueQuedan = Math.round((float)millisHastaFinalizar / 1000.0f);
                 }
                 long redondear = segundosQueQuedan * 100;
                 if(redondear==NUMERO_SEGUNDOS){
@@ -88,7 +88,7 @@ public class JuegoActivity extends AppCompatActivity {
                             + ":" + String.format(SEGUNDOS_FORMAT, 0));
                 }else {
                     tv_timer.setText(segundosQueQuedan
-                            + ":" + String.format(SEGUNDOS_FORMAT, millisUntilFinished % 100));
+                            + ":" + String.format(SEGUNDOS_FORMAT, millisHastaFinalizar % 100));
                 }
             }
 
@@ -185,18 +185,21 @@ public class JuegoActivity extends AppCompatActivity {
         bt_reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
         tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
         tv_resultado = dialogo.findViewById(R.id.tv_resultado);
+        iv_carita = dialogo.findViewById(R.id.iv_carita);
 
         if (partidaGanada){
-            tv_resultado.setText(getText(R.string.textoGanado));
+            tv_resultado.setText(getString(R.string.textoGanado));
+            iv_carita.setImageResource(R.drawable.carita_feliz);
             mpPartidaGanada.start();
         }else{
-            tv_resultado.setText(getText(R.string.textoPerdido));
+            tv_resultado.setText(getString(R.string.textoPerdido));
+            iv_carita.setImageResource(R.drawable.carita_triste);
             mpPartidaPerdida.start();
         }
 
-        int puntuacion = 10000 * dificultad;
+        puntuacion =  10000000 / (intentos * (NUMERO_SEGUNDOS - segundosQueQuedan*1000));
 
-        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + puntuacion + "");
+        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,27 +6,41 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_width="330sp"
+        android:layout_height="440sp"
+        android:background="@drawable/pizarra"
         android:gravity="center"
-        android:background="@drawable/background_dialogo"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_resultado"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/font"
-            android:text="@string/tv_resultado"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:id="@+id/tv_resultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font"
+                android:text="@string/tv_resultado"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/iv_carita"
+                android:layout_width="65dp"
+                android:layout_height="44dp"
+                app:srcCompat="@drawable/carita_feliz" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_puntuacion"
@@ -43,8 +57,8 @@
             android:id="@+id/bt_cambiarDificultad"
             android:layout_width="269dp"
             android:layout_height="60dp"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/boton_dialogue"
             android:fontFamily="@font/font"
@@ -57,8 +71,8 @@
             android:id="@+id/bt_reiniciar"
             android:layout_width="215dp"
             android:layout_height="65dp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/boton_dialogue"
             android:fontFamily="@font/font"
@@ -71,8 +85,8 @@
             android:id="@+id/bt_ranking"
             android:layout_width="166dp"
             android:layout_height="59dp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/boton_dialogue"

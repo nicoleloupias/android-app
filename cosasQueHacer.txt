@@ -6,12 +6,12 @@ COSAS QUE HACER:
 [X] Buscar palabras para cada dificultad
 [X] Crear temporizador dependiendo de la dificultad
 [X] Cada fallo, agregar la letra al cuadradito de errores y actualizar la imagen del muñeco
-[] Hacer modal cuando pierda
-[] Hacer modal cuando gane
+[X] Hacer modal cuando pierda
+[X] Hacer modal cuando gane
 [X] Colocar bien temporizador
 [X] Array palabras en ingles
 [] Base de datos externa
-[] Añadir los sonidos
+[X] Añadir los sonidos
 [] Añadir modal de pista
 [] Que funcione guardar partida con el jugador
 [X] Cambiar color barrita nombre

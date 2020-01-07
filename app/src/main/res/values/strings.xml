@@ -10,7 +10,7 @@
     <string name="tv_elegirDificultad">Elige la dificultad</string>
     <string name="bt_facil">Fácil</string>
     <string name="bt_normal">Normal</string>
-    <string name="bt_dificil">dificil</string>
+    <string name="bt_dificil">difícil</string>
     <string name="bt_reiniciar">Volver a jugar</string>
     <string name="bt_ranking">Ranking</string>
     <string name="bt_cambiarDificultad">Cambiar la dificultad</string>

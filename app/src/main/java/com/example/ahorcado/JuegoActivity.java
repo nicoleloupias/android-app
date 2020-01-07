@@ -22,27 +22,18 @@ import java.util.TimerTask;
 
 public class JuegoActivity extends AppCompatActivity {
     private ImageView iv_muneco;
-    private TextView tv_palabra;
-    private TextView tv_letrasFalladas;
-    private TextView tv_timer;
+    private TextView tv_palabra, tv_letrasFalladas, tv_timer, tv_puntuacion, tv_resultado;
     private String palabraElegida;
     private String[] arrayPalabras;
     private Random random;
-    private char[] arrayGuiones;
-    private char[] arrayPalabra;
+    private char[] arrayGuiones, arrayPalabra;
     private int intentos = 0;
+    private int dificultad;
     private boolean juegoTerminado = false;
     private Dialog dialogo;
     private Button bt_reiniciar, bt_ranking, bt_cambiarDificultad;
-    private TextView tv_puntuacion;
-    private TextView tv_resultado;
-    private boolean partidaGanada;
-
-    private MediaPlayer mpLetraIncorrecta;
-    private MediaPlayer mpLetraCorrecta;
-    private MediaPlayer mpPartidaGanada;
-    private MediaPlayer mpPartidaPerdida;
-
+    private boolean partidaGanada = false;
+    private MediaPlayer mpLetraIncorrecta, mpLetraCorrecta, mpPartidaGanada, mpPartidaPerdida;
     private static long NUMERO_SEGUNDOS = 30000;
     private static final String SEGUNDOS_FORMAT = "%02d";
     private int segundosQueQuedan = 0;
@@ -58,7 +49,7 @@ public class JuegoActivity extends AppCompatActivity {
         tv_timer = findViewById(R.id.tv_temporizador);
         iv_muneco = findViewById(R.id.iv_muneco);
         random = new Random();
-        int dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
+        dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
 
         mpLetraIncorrecta = MediaPlayer.create(this, R.raw.fallo);
         mpLetraCorrecta = MediaPlayer.create(this, R.raw.acierto);
@@ -146,7 +137,7 @@ public class JuegoActivity extends AppCompatActivity {
                     public void run() {
                         mostrarDialogo();
                     }
-                }, 1500);
+                }, 1000);
 
 
             }
@@ -203,8 +194,9 @@ public class JuegoActivity extends AppCompatActivity {
             mpPartidaPerdida.start();
         }
 
-//el numero ese es una prueba, ahi se concatenaria el numero de la puntuacion
-        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + 12510 + "");
+        int puntuacion = 10000 * dificultad;
+
+        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + puntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

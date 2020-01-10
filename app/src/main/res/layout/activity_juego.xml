@@ -26,14 +26,13 @@
             android:layout_marginBottom="24dp"
             app:srcCompat="@drawable/reloj" />
 
-        <TextView
-            android:id="@+id/tv_temporizador"
+        <Chronometer
+            android:id="@+id/chronometer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="18dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:fontFamily="@font/pigment"
-            android:text="temporizador"
+            android:gravity="center_horizontal"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>

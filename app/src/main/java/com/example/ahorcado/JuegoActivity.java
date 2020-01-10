@@ -11,8 +11,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,11 +36,10 @@ public class JuegoActivity extends AppCompatActivity {
     private Button bt_reiniciar, bt_ranking, bt_cambiarDificultad;
     private boolean partidaGanada = false;
     private MediaPlayer mpLetraIncorrecta, mpLetraCorrecta, mpPartidaGanada, mpPartidaPerdida;
-    private static long NUMERO_SEGUNDOS = 30000;
-    private static final String SEGUNDOS_FORMAT = "%02d";
-    private int segundosQueQuedan = 0;
     private long puntuacion = 0;
-    CountDownTimer temporizador;
+    private long tiempoPasado;
+
+    Chronometer chronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class JuegoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
         tv_palabra = findViewById(R.id.tv_palabra);
         tv_letrasFalladas = findViewById(R.id.tv_letrasFalladas);
-        tv_timer = findViewById(R.id.tv_temporizador);
         iv_muneco = findViewById(R.id.iv_muneco);
+        chronometer  = findViewById(R.id.chronometer);
         random = new Random();
         dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
 
@@ -61,15 +62,12 @@ public class JuegoActivity extends AppCompatActivity {
         switch (dificultad){
             case 1:
                 arrayPalabras = getResources().getStringArray(R.array.array_facil);
-                NUMERO_SEGUNDOS = 25000;
                 break;
             case 2:
                 arrayPalabras = getResources().getStringArray(R.array.array_normal);
-                NUMERO_SEGUNDOS = 22000;
                 break;
             case 3:
                 arrayPalabras = getResources().getStringArray(R.array.array_dificil);
-                NUMERO_SEGUNDOS = 20000;
                 break;
         }
         palabraElegida = arrayPalabras[random.nextInt(arrayPalabras.length)].toUpperCase();
@@ -77,28 +75,9 @@ public class JuegoActivity extends AppCompatActivity {
         arrayGuiones = numeroGuiones().toCharArray();
         arrayPalabra = palabraElegida.toCharArray();
 
-         temporizador = new CountDownTimer(NUMERO_SEGUNDOS, 1) {
-            public void onTick(long millisHastaFinalizar) {
-                if (Math.round((float)millisHastaFinalizar / 1000.0f) != segundosQueQuedan){
-                    segundosQueQuedan = Math.round((float)millisHastaFinalizar / 1000.0f);
-                }
-                long redondear = segundosQueQuedan * 100;
-                if(redondear==NUMERO_SEGUNDOS){
-                    tv_timer.setText(segundosQueQuedan
-                            + ":" + String.format(SEGUNDOS_FORMAT, 0));
-                }else {
-                    tv_timer.setText(segundosQueQuedan
-                            + ":" + String.format(SEGUNDOS_FORMAT, millisHastaFinalizar % 100));
-                }
-            }
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.start();
 
-            public void onFinish() {
-                tv_timer.setText("0:00");
-                iv_muneco.setImageResource(R.drawable.munequito_fallo6);
-                juegoTerminado = true;
-                mostrarDialogo();
-            }
-        }.start();
     }
 
     private String numeroGuiones(){
@@ -130,7 +109,7 @@ public class JuegoActivity extends AppCompatActivity {
             tv_palabra.setText(String.valueOf(arrayGuiones));
             if (palabraElegida.equalsIgnoreCase(tv_palabra.getText().toString())){
                 partidaGanada = true;
-                temporizador.cancel();
+                chronometer.stop();
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -173,7 +152,7 @@ public class JuegoActivity extends AppCompatActivity {
             case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 mostrarDialogo();
-                temporizador.cancel();
+                chronometer.stop();
                 break;
         }
     }
@@ -196,8 +175,11 @@ public class JuegoActivity extends AppCompatActivity {
             iv_carita.setImageResource(R.drawable.carita_triste);
             mpPartidaPerdida.start();
         }
-
-        puntuacion =  10000000 / (intentos * (NUMERO_SEGUNDOS - segundosQueQuedan*1000));
+        tiempoPasado = SystemClock.elapsedRealtime() - chronometer.getBase();
+        int horasPasadas = (int) (tiempoPasado / 3600000);
+        int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;
+        int segundosPasados = (int) (tiempoPasado - horasPasadas * 3600000 - minutosPasados * 60000) / 1000;
+        puntuacion =  10000000 / (intentos * segundosPasados * 100);
 
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {

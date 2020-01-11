@@ -49,6 +49,7 @@
     <string name="X">X</string>
     <string name="Y">Y</string>
     <string name="Z">Z</string>
+    <string name="tv_ranking">Ranking</string>
 
 
     <string-array name="array_facil">

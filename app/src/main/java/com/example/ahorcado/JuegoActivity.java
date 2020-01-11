@@ -179,7 +179,7 @@ public class JuegoActivity extends AppCompatActivity {
         int horasPasadas = (int) (tiempoPasado / 3600000);
         int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;
         int segundosPasados = (int) (tiempoPasado - horasPasadas * 3600000 - minutosPasados * 60000) / 1000;
-        puntuacion =  10000000 / (intentos * segundosPasados * 100);
+        puntuacion =  100000 / (intentos * segundosPasados);
 
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {

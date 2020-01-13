@@ -192,7 +192,7 @@ public class JuegoActivity extends AppCompatActivity {
         bt_ranking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(JuegoActivity.this,DificultadActivity.class);
+                Intent i = new Intent(JuegoActivity.this,RankingActivity.class);
                 startActivity(i);
             }
         });
@@ -207,4 +207,5 @@ public class JuegoActivity extends AppCompatActivity {
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogo.show();
     }
+
 }

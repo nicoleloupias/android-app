@@ -3,13 +3,11 @@ package com.example.ahorcado;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
@@ -17,15 +15,15 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.example.ahorcado.AlmacenPuntuaciones;
+import com.example.ahorcado.AlmacenPuntuacionesPHP;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class JuegoActivity extends AppCompatActivity {
     private ImageView iv_muneco,  iv_carita;
     private TextView tv_palabra, tv_letrasFalladas, tv_timer, tv_puntuacion, tv_resultado;
-    private String palabraElegida;
+    private String palabraElegida, usuario;
+    private String serverURL = "http://hangmanpmov.000webhostapp.com/connect/insert.php";
     private String[] arrayPalabras;
     private Random random;
     private char[] arrayGuiones, arrayPalabra;
@@ -38,6 +36,7 @@ public class JuegoActivity extends AppCompatActivity {
     private MediaPlayer mpLetraIncorrecta, mpLetraCorrecta, mpPartidaGanada, mpPartidaPerdida;
     private long puntuacion = 0;
     private long tiempoPasado;
+    public static AlmacenPuntuaciones almacen;
 
     Chronometer chronometer;
 
@@ -45,20 +44,19 @@ public class JuegoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
+        almacen = new AlmacenPuntuacionesPHP();
         tv_palabra = findViewById(R.id.tv_palabra);
         tv_letrasFalladas = findViewById(R.id.tv_letrasFalladas);
         iv_muneco = findViewById(R.id.iv_muneco);
         chronometer  = findViewById(R.id.chronometer);
         random = new Random();
         dificultad = getIntent().getIntExtra("DIFICULTAD", 0);
-
         mpLetraIncorrecta = MediaPlayer.create(this, R.raw.fallo);
         mpLetraCorrecta = MediaPlayer.create(this, R.raw.acierto);
         mpPartidaGanada = MediaPlayer.create(this, R.raw.gana);
         mpPartidaPerdida = MediaPlayer.create(this, R.raw.pierde);
-
         dialogo = new Dialog(this);
-
+        usuario = getIntent().getStringExtra("NOMBRE");
         switch (dificultad){
             case 1:
                 arrayPalabras = getResources().getStringArray(R.array.array_facil);
@@ -180,7 +178,8 @@ public class JuegoActivity extends AppCompatActivity {
         int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;
         int segundosPasados = (int) (tiempoPasado - horasPasadas * 3600000 - minutosPasados * 60000) / 1000;
         puntuacion =  100000 / (intentos * segundosPasados);
-
+        int puntos = (int) puntuacion;
+        almacen.guardarPuntuacion(usuario, puntos);
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,5 +206,4 @@ public class JuegoActivity extends AppCompatActivity {
         dialogo.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogo.show();
     }
-
 }

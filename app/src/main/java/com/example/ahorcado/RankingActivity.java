@@ -1,59 +1,43 @@
 package com.example.ahorcado;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.example.ahorcado.AlmacenPuntuacionesPHP;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Vector;
 
 import cz.msebera.android.httpclient.Header;
 
-public class RankingActivity extends AppCompatActivity {
-    private ArrayList usuario, puntuacion;
+public class RankingActivity extends ListActivity {
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
     private TextView tv_prueba;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
-        tv_prueba = findViewById(R.id.tv_prueba);
-        usuario = new ArrayList();
-        puntuacion = new ArrayList();
 
-        obtenerDatos();
-    }
+        setListAdapter(
+                new ArrayAdapter(this,
+                        R.layout.elemento_lista,
+                        R.id.titulo,
+                        JuegoActivity.almacen.listaPuntuaciones(10)));
 
-    private void obtenerDatos(){
-        usuario.clear();
-        puntuacion.clear();
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://hangmanpmov.000webhostapp.com/connect/connect.php", new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200){
-                    try {
-                        JSONArray jsonarray = new JSONArray(new String(responseBody));
-                        for (int i = 0; i < jsonarray.length(); i++){
-                            usuario.add(jsonarray.getJSONObject(i).getString("USER"));
-                            puntuacion.add(jsonarray.getJSONObject(i).getString("SCORE"));
-                        }
-                        tv_prueba.setText(String.valueOf(usuario.get(0)) + String.valueOf(puntuacion.get(0)));
-                    }catch (JSONException e){
-                        e.printStackTrace();
-                    }
-                }
-            }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
-            }
-        });
     }
 }

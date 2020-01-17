@@ -27,7 +27,7 @@ public class DificultadActivity extends AppCompatActivity {
         bt_ok = findViewById(R.id.bt_ok2);
         sonidoClick = MediaPlayer.create(this, R.raw.click);
 
-        String nombre = getIntent().getStringExtra("NOMBRE");
+        final String nombre = getIntent().getStringExtra("NOMBRE");
         tv_nombre.setText(nombre);
 
 
@@ -38,6 +38,7 @@ public class DificultadActivity extends AppCompatActivity {
                     sonidoClick.start();
                     Intent i = new Intent(DificultadActivity.this, JuegoActivity.class);
                     i.putExtra("DIFICULTAD", dificultadElegida);
+                    i.putExtra("NOMBRE", nombre);
                     startActivity(i);
 
                 }else{

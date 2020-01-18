@@ -5,5 +5,5 @@ import java.util.Vector;
 interface AlmacenPuntuaciones {
     public void guardarPuntuacion(String nombre, int puntos);
 
-    public Vector<String> listaPuntuaciones(int cantidad);
+    public Vector<String> listaPuntuaciones();
 }

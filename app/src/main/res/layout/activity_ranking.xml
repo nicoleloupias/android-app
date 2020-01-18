@@ -28,11 +28,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ranking" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_puntuaciones"
-        android:layout_width="409dp"
-        android:layout_height="577dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="153dp" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="150sp"
+        android:dividerHeight="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_resultados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ranking" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

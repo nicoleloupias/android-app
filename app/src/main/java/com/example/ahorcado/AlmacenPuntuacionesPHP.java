@@ -1,5 +1,6 @@
 package com.example.ahorcado;
 
+import android.content.Intent;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -12,7 +13,7 @@ import java.util.Vector;
 public class AlmacenPuntuacionesPHP implements AlmacenPuntuaciones{
     HttpURLConnection conexion;
 
-    public Vector<String> listaPuntuaciones(int cantidad) {
+    public Vector<String> listaPuntuaciones() {
         Vector<String> result = new Vector<String>();
         try {
             URL url=new URL("http://hangmanpmov.000webhostapp.com/connect/lista.php" + "?max=20");
@@ -57,5 +58,7 @@ public class AlmacenPuntuacionesPHP implements AlmacenPuntuaciones{
             if (conexion!=null) conexion.disconnect();
         }
     }
+
+
 }
 

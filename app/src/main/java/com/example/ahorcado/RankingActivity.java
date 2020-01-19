@@ -1,8 +1,11 @@
 package com.example.ahorcado;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +22,10 @@ import java.util.List;
 import java.util.Vector;
 
 
-public class RankingActivity extends ListActivity {
-    private TextView tv_prueba;
+public class RankingActivity extends Activity {
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +34,16 @@ public class RankingActivity extends ListActivity {
 
         Vector<String> resultado = JuegoActivity.almacen.listaPuntuaciones();
 
-        List<String> list = Collections.list(resultado.elements());
+        String[] array = resultado.toArray(new String[resultado.size()]);
 
-        ArrayAdapter<String> myAdapter = new ArrayAdapter <String>(this,
-                R.layout.activity_ranking, R.id.tv_resultados, list);
 
-        // assign the list adapter
-        setListAdapter(myAdapter);
+
+        recyclerView = findViewById(R.id.my_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        mAdapter = new MyAdapter(array);
+        recyclerView.setAdapter(mAdapter);
+
     }
 }

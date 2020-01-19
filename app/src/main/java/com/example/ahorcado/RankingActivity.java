@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.ahorcado.AlmacenPuntuacionesPHP;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -35,6 +36,17 @@ public class RankingActivity extends Activity {
         Vector<String> resultado = JuegoActivity.almacen.listaPuntuaciones();
 
         String[] array = resultado.toArray(new String[resultado.size()]);
+        int pos = 0;
+        String str = " - ";
+        for (int i = 0; i < array.length; i++){
+            int len = array[i].length();
+            for (int j = 0; j < len; j++){
+                if (array[i].charAt(j) == ' '){
+                    pos = j;
+                }
+            }
+            array[i] = addChar(array[i], str, pos);
+        }
 
 
 
@@ -45,5 +57,8 @@ public class RankingActivity extends Activity {
         mAdapter = new MyAdapter(array);
         recyclerView.setAdapter(mAdapter);
 
+    }
+    public String addChar(String str, String str2, int position) {
+        return str.substring(0, position) + str2 + str.substring(position);
     }
 }

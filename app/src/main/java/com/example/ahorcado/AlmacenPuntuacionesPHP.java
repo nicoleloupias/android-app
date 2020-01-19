@@ -16,7 +16,7 @@ public class AlmacenPuntuacionesPHP implements AlmacenPuntuaciones{
     public Vector<String> listaPuntuaciones() {
         Vector<String> result = new Vector<String>();
         try {
-            URL url=new URL("https://hangmanpmov.000webhostapp.com/connect/lista.php" + "?");
+            URL url=new URL("https://hangmanpmov.000webhostapp.com/connect/lista.php" + "?max=10");
             conexion = (HttpURLConnection) url.openConnection();
             if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));

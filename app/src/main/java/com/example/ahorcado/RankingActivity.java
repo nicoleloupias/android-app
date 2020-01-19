@@ -34,31 +34,20 @@ public class RankingActivity extends Activity {
         setContentView(R.layout.activity_ranking);
 
         Vector<String> resultado = JuegoActivity.almacen.listaPuntuaciones();
-
         String[] array = resultado.toArray(new String[resultado.size()]);
-        int pos = 0;
-        String str = " - ";
+        String[] arrayConGuiones = new String[array.length];
         for (int i = 0; i < array.length; i++){
-            int len = array[i].length();
-            for (int j = 0; j < len; j++){
-                if (array[i].charAt(j) == ' '){
-                    pos = j;
-                }
+            for (int j = 0; j < array[i].length(); j++){
+                    arrayConGuiones[i] = array[i].replaceAll(" "," - ");
             }
-            array[i] = addChar(array[i], str, pos);
         }
-
-
-
         recyclerView = findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new MyAdapter(array);
+        mAdapter = new MyAdapter(arrayConGuiones);
         recyclerView.setAdapter(mAdapter);
 
     }
-    public String addChar(String str, String str2, int position) {
-        return str.substring(0, position) + str2 + str.substring(position);
-    }
+
 }

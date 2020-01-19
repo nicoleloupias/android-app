@@ -14,6 +14,7 @@
     <string name="bt_reiniciar">Volver a jugar</string>
     <string name="bt_ranking">Ranking</string>
     <string name="bt_cambiarDificultad">Cambiar la dificultad</string>
+    <string name="bt_inicio">Inicio</string>
     <string name="tv_puntuacion">0</string>
     <string name="tv_resultado">-</string>
     <string name="textoGanado">¡Has ganado!</string>

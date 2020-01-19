@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:fontFamily="@font/font"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
 </LinearLayout>

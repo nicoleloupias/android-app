@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +29,14 @@ public class RankingActivity extends Activity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private Button bt_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
+
+        bt_home = findViewById(R.id.bt_inicio);
 
         Vector<String> resultado = JuegoActivity.almacen.listaPuntuaciones();
         String[] array = resultado.toArray(new String[resultado.size()]);
@@ -47,6 +52,14 @@ public class RankingActivity extends Activity {
         recyclerView.setLayoutManager(layoutManager);
         mAdapter = new MyAdapter(arrayConGuiones);
         recyclerView.setAdapter(mAdapter);
+        bt_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RankingActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

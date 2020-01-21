@@ -1,6 +1,5 @@
 package com.example.ahorcado;
 
-import android.content.Intent;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -57,6 +56,29 @@ public class AlmacenPuntuacionesPHP implements AlmacenPuntuaciones{
         } finally {
             if (conexion!=null) conexion.disconnect();
         }
+    }
+    public String maximaPuntuacion(String nombre) {
+        String linea = "";
+        try {
+            URL url=new URL("https://hangmanpmov.000webhostapp.com/connect/maxima.php?" +
+                    "usuario="+ URLEncoder.encode(nombre, "UTF-8"));
+            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
+            if (conexion.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
+                linea = reader.readLine();
+                if (!linea.equals(" ")) {
+                    reader.close();
+                }
+            } else {
+                Log.e("Ahorcado", conexion.getResponseMessage());
+            }
+        } catch (Exception e) {
+            Log.e("Ahorcado", e.getMessage(), e);
+        } finally {
+            if (conexion!=null) conexion.disconnect();
+            return linea;
+        }
+
     }
 
 

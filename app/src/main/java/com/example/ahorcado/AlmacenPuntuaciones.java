@@ -6,4 +6,6 @@ interface AlmacenPuntuaciones {
     public void guardarPuntuacion(String nombre, int puntos);
 
     public Vector<String> listaPuntuaciones();
+
+    public String maximaPuntuacion(String nombre);
 }

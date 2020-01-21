@@ -22,12 +22,13 @@ import java.util.Random;
 public class JuegoActivity extends AppCompatActivity {
     private ImageView iv_muneco,  iv_carita;
     private TextView tv_palabra, tv_letrasFalladas, tv_timer, tv_puntuacion, tv_resultado;
-    private String palabraElegida, usuario;
+    private String palabraElegida, usuario, maximaPuntuacion;
     private String serverURL = "http://hangmanpmov.000webhostapp.com/connect/insert.php";
     private String[] arrayPalabras;
     private Random random;
     private char[] arrayGuiones, arrayPalabra;
     private int intentos = 0;
+    private int aciertos = 0;
     private int dificultad;
     private boolean juegoTerminado = false;
     private Dialog dialogo;
@@ -102,7 +103,9 @@ public class JuegoActivity extends AppCompatActivity {
         for (int i = 0; i < palabraElegida.length(); i++){
             if (l == arrayPalabra[i]){
                 arrayGuiones[i] = l;
+                aciertos++;
                 acierto = true;
+
             }
             tv_palabra.setText(String.valueOf(arrayGuiones));
             if (palabraElegida.equalsIgnoreCase(tv_palabra.getText().toString())){
@@ -177,10 +180,14 @@ public class JuegoActivity extends AppCompatActivity {
         int horasPasadas = (int) (tiempoPasado / 3600000);
         int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;
         int segundosPasados = (int) (tiempoPasado - horasPasadas * 3600000 - minutosPasados * 60000) / 1000;
-        puntuacion =  100000 / (intentos * segundosPasados);
-        int puntos = (int) puntuacion;
+        puntuacion =  ((10000 * dificultad) * aciertos) / ((segundosPasados*segundosPasados/2)*(intentos));
+        if (puntuacion<0){
+            puntuacion = 0;
+        }
+        maximaPuntuacion =  almacen.maximaPuntuacion(usuario);
+        int puntos = (int) Math.floor(puntuacion);
         almacen.guardarPuntuacion(usuario, puntos);
-        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntuacion + "");
+        tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntos + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

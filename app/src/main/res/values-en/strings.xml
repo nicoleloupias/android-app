@@ -21,6 +21,8 @@
     <string name="textoGanado">You won!</string>
     <string name="textoPerdido">You lost!</string>
     <string name="textoPuntuacion">Your score is: </string>
+    <string name="textoMaximaPuntuacion">Your best score has been: </string>
+
 
     <string name="tv_palabra">_ _ _ _ _</string>
 
@@ -51,6 +53,7 @@
     <string name="X">X</string>
     <string name="Y">Y</string>
     <string name="Z">Z</string>
+    <string name="tv_ranking">Ranking</string>
 
     <string-array name="array_facil">
         <item>Eyes</item>

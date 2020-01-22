@@ -20,6 +20,7 @@
     <string name="textoGanado">¡Has ganado!</string>
     <string name="textoPerdido">¡Has perdido!</string>
     <string name="textoPuntuacion">Tu puntuación es: </string>
+    <string name="textoMaximaPuntuacion">Tu mejor puntuación hasta ahora ha sido: </string>
 
     <string name="tv_palabra">_ _ _ _ _</string>
 

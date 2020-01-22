@@ -21,9 +21,8 @@ import java.util.Random;
 
 public class JuegoActivity extends AppCompatActivity {
     private ImageView iv_muneco,  iv_carita;
-    private TextView tv_palabra, tv_letrasFalladas, tv_timer, tv_puntuacion, tv_resultado;
+    private TextView tv_palabra, tv_letrasFalladas, tv_timer, tv_puntuacion, tv_resultado, tv_maxima;
     private String palabraElegida, usuario, maximaPuntuacion;
-    private String serverURL = "http://hangmanpmov.000webhostapp.com/connect/insert.php";
     private String[] arrayPalabras;
     private Random random;
     private char[] arrayGuiones, arrayPalabra;
@@ -109,6 +108,7 @@ public class JuegoActivity extends AppCompatActivity {
             }
             tv_palabra.setText(String.valueOf(arrayGuiones));
             if (palabraElegida.equalsIgnoreCase(tv_palabra.getText().toString())){
+                aciertos = aciertos + 5;
                 partidaGanada = true;
                 chronometer.stop();
                 final Handler handler = new Handler();
@@ -165,6 +165,7 @@ public class JuegoActivity extends AppCompatActivity {
         bt_reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
         tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
         tv_resultado = dialogo.findViewById(R.id.tv_resultado);
+        tv_maxima  = dialogo.findViewById(R.id.tv_maxima);
         iv_carita = dialogo.findViewById(R.id.iv_carita);
 
         if (partidaGanada){
@@ -180,14 +181,15 @@ public class JuegoActivity extends AppCompatActivity {
         int horasPasadas = (int) (tiempoPasado / 3600000);
         int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;
         int segundosPasados = (int) (tiempoPasado - horasPasadas * 3600000 - minutosPasados * 60000) / 1000;
-        puntuacion =  ((10000 * dificultad) * aciertos) / ((segundosPasados*segundosPasados/2)*(intentos));
+        puntuacion =  ((10000 * dificultad) * aciertos) / ((segundosPasados)*(intentos*intentos));
         if (puntuacion<0){
             puntuacion = 0;
         }
-        maximaPuntuacion =  almacen.maximaPuntuacion(usuario);
         int puntos = (int) Math.floor(puntuacion);
         almacen.guardarPuntuacion(usuario, puntos);
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntos + "");
+        maximaPuntuacion =  almacen.maximaPuntuacion(usuario);
+        tv_maxima.setText(getString(R.string.textoMaximaPuntuacion) + " " + maximaPuntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,6 +208,7 @@ public class JuegoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(JuegoActivity.this,DificultadActivity.class);
+                i.putExtra("NOMBRE", usuario);
                 startActivity(i);
             }
         });

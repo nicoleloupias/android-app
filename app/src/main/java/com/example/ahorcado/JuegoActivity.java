@@ -102,19 +102,9 @@ public class JuegoActivity extends AppCompatActivity {
         for (int i = 0; i < palabraElegida.length(); i++){
             if (l == arrayPalabra[i]){
                 arrayGuiones[i] = l;
-                aciertos++;
                 acierto = true;
-
             }
             tv_palabra.setText(String.valueOf(arrayGuiones));
-            if (palabraElegida.equalsIgnoreCase(tv_palabra.getText().toString())){
-                aciertos = aciertos + 5;
-                partidaGanada = true;
-                chronometer.stop();
-                mostrarDialogo();
-
-
-            }
         }
         if(!acierto){
             intentos++;
@@ -126,6 +116,7 @@ public class JuegoActivity extends AppCompatActivity {
             }
         }else{
             mpLetraCorrecta.start();
+            aciertos++;
         }
 
         switch (intentos){
@@ -146,22 +137,23 @@ public class JuegoActivity extends AppCompatActivity {
                 break;
             case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
-                mostrarDialogo();
-                chronometer.stop();
+                juegoTerminado = true;
                 break;
+        }
+        if (palabraElegida.equalsIgnoreCase(tv_palabra.getText().toString())){
+            partidaGanada = true;
+            juegoTerminado = true;
+        }
+        if (juegoTerminado){
+            chronometer.stop();
+            mostrarDialogo();
         }
     }
     private void mostrarDialogo(){
         dialogo.setContentView(R.layout.cuadro_dialogo);
         dialogo.setCancelable(false);
-        bt_ranking = dialogo.findViewById(R.id.bt_ranking);
-        bt_cambiarDificultad = dialogo.findViewById(R.id.bt_cambiarDificultad);
-        bt_reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
-        tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
         tv_resultado = dialogo.findViewById(R.id.tv_resultado);
-        tv_maxima  = dialogo.findViewById(R.id.tv_maxima);
         iv_carita = dialogo.findViewById(R.id.iv_carita);
-
         if (partidaGanada){
             tv_resultado.setText(getString(R.string.textoGanado));
             iv_carita.setImageResource(R.drawable.carita_feliz);
@@ -171,6 +163,16 @@ public class JuegoActivity extends AppCompatActivity {
             iv_carita.setImageResource(R.drawable.carita_triste);
             mpPartidaPerdida.start();
         }
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        tv_puntuacion = dialogo.findViewById(R.id.tv_puntuacion);
+        bt_ranking = dialogo.findViewById(R.id.bt_ranking);
+        bt_cambiarDificultad = dialogo.findViewById(R.id.bt_cambiarDificultad);
+        bt_reiniciar = dialogo.findViewById(R.id.bt_reiniciar);
+        tv_maxima  = dialogo.findViewById(R.id.tv_maxima);
         tiempoPasado = SystemClock.elapsedRealtime() - chronometer.getBase();
         int horasPasadas = (int) (tiempoPasado / 3600000);
         int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;

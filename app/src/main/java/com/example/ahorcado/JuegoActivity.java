@@ -26,9 +26,9 @@ public class JuegoActivity extends AppCompatActivity {
     private String[] arrayPalabras;
     private Random random;
     private char[] arrayGuiones, arrayPalabra;
-    private int intentos = 1;
+    private int intentos = 0;
     private int aciertos = 0;
-    private int dificultad;
+    private int dificultad, puntos;
     private boolean juegoTerminado = false;
     private Dialog dialogo;
     private Button bt_reiniciar, bt_ranking, bt_cambiarDificultad;
@@ -120,22 +120,22 @@ public class JuegoActivity extends AppCompatActivity {
         }
 
         switch (intentos){
-            case 2:
+            case 1:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo1);
                 break;
-            case 3:
+            case 2:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo2);
                 break;
-            case 4:
+            case 3:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo3);
                 break;
-            case 5:
+            case 4:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo4);
                 break;
-            case 6:
+            case 5:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo5);
                 break;
-            case 7:
+            case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 juegoTerminado = true;
                 break;
@@ -177,11 +177,11 @@ public class JuegoActivity extends AppCompatActivity {
         int horasPasadas = (int) (tiempoPasado / 3600000);
         int minutosPasados = (int) (tiempoPasado - horasPasadas * 3600000) / 60000;
         int segundosPasados = (int) (tiempoPasado - horasPasadas * 3600000 - minutosPasados * 60000) / 1000;
-        puntuacion =  ((10000 * dificultad) * aciertos) / ((segundosPasados)*(intentos*intentos));
+        puntuacion =  ((10000 * dificultad) * aciertos) / ((segundosPasados)*(intentos*intentos+1));
         if (puntuacion<0){
             puntuacion = 0;
         }
-        int puntos = (int) Math.floor(puntuacion);
+        puntos = (int) Math.floor(puntuacion);
         almacen.guardarPuntuacion(usuario, puntos);
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntos + "");
        maximaPuntuacion =  almacen.maximaPuntuacion(usuario);

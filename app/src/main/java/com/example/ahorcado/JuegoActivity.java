@@ -111,13 +111,7 @@ public class JuegoActivity extends AppCompatActivity {
                 aciertos = aciertos + 5;
                 partidaGanada = true;
                 chronometer.stop();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mostrarDialogo();
-                    }
-                }, 1000);
+                mostrarDialogo();
 
 
             }

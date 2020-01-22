@@ -52,7 +52,7 @@
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
-
+/*
         <TextView
             android:id="@+id/tv_maxima"
             android:layout_width="match_parent"

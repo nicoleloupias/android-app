@@ -26,7 +26,7 @@ public class JuegoActivity extends AppCompatActivity {
     private String[] arrayPalabras;
     private Random random;
     private char[] arrayGuiones, arrayPalabra;
-    private int intentos = 0;
+    private int intentos = 1;
     private int aciertos = 0;
     private int dificultad;
     private boolean juegoTerminado = false;
@@ -120,22 +120,22 @@ public class JuegoActivity extends AppCompatActivity {
         }
 
         switch (intentos){
-            case 1:
+            case 2:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo1);
                 break;
-            case 2:
+            case 3:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo2);
                 break;
-            case 3:
+            case 4:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo3);
                 break;
-            case 4:
+            case 5:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo4);
                 break;
-            case 5:
+            case 6:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo5);
                 break;
-            case 6:
+            case 7:
                 iv_muneco.setImageResource(R.drawable.munequito_fallo6);
                 juegoTerminado = true;
                 break;
@@ -184,7 +184,7 @@ public class JuegoActivity extends AppCompatActivity {
         int puntos = (int) Math.floor(puntuacion);
         almacen.guardarPuntuacion(usuario, puntos);
         tv_puntuacion.setText(getString(R.string.textoPuntuacion) + " " + puntos + "");
-        maximaPuntuacion =  almacen.maximaPuntuacion(usuario);
+       maximaPuntuacion =  almacen.maximaPuntuacion(usuario);
         tv_maxima.setText(getString(R.string.textoMaximaPuntuacion) + " " + maximaPuntuacion + "");
         bt_reiniciar.setOnClickListener(new View.OnClickListener() {
             @Override

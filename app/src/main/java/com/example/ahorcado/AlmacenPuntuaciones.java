@@ -7,5 +7,5 @@ interface AlmacenPuntuaciones {
 
     public Vector<String> listaPuntuaciones();
 
-    public String maximaPuntuacion(String nombre);
+  public String maximaPuntuacion(String nombre);
 }

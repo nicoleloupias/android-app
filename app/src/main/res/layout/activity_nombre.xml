@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NombreActivity"
-    android:background="@drawable/fondoverde">
+    android:background="@drawable/fondoverde"
+    tools:context=".NombreActivity">
 
     <TextView
         android:id="@+id/tv_comoTeLlamas"
@@ -15,11 +15,13 @@
         android:fontFamily="@font/pigment"
         android:text="@string/tv_introducirNombre"
         android:textColor="#FFFFFF"
-        android:textSize="50sp"
+        android:textSize="44sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_nombre"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
         android:id="@+id/et_nombre"
@@ -28,11 +30,13 @@
         android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="@string/et_nombre"
-        android:theme="@style/MyEditText"
         android:inputType="textPersonName"
-        android:textColorHint="#7E9484"
         android:maxLength="10"
+        android:textColorHint="#7E9484"
+        android:theme="@style/MyEditText"
+        app:layout_constraintBottom_toTopOf="@+id/bt_ok"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_comoTeLlamas" />
 
@@ -47,7 +51,9 @@
         android:text="@string/bt_ok"
         android:textColor="#8BC34A"
         android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_lapiz"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_nombre" />
 
@@ -55,10 +61,10 @@
         android:id="@+id/iv_letras"
         android:layout_width="111dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintEnd_toStartOf="@+id/iv_lapiz"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/letras" />
 
@@ -66,11 +72,10 @@
         android:id="@+id/iv_lapiz"
         android:layout_width="84dp"
         android:layout_height="88dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iv_letras"
         app:srcCompat="@drawable/lapiz" />
 </androidx.constraintlayout.widget.ConstraintLayout>

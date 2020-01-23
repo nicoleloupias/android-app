@@ -57,6 +57,8 @@
             android:id="@+id/tv_maxima"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/font"
             android:text="@string/tv_puntuacion"
@@ -76,7 +78,7 @@
             android:text="@string/bt_cambiarDificultad"
             android:textAlignment="center"
             android:textColor="#2C692F"
-            android:textSize="30sp" />
+            android:textSize="27sp" />
 
         <Button
             android:id="@+id/bt_reiniciar"
@@ -90,7 +92,7 @@
             android:text="@string/bt_reiniciar"
             android:textAlignment="center"
             android:textColor="#2C692F"
-            android:textSize="30sp" />
+            android:textSize="27sp" />
 
         <Button
             android:id="@+id/bt_ranking"
@@ -105,7 +107,7 @@
             android:text="@string/bt_ranking"
             android:textAlignment="center"
             android:textColor="#2C692F"
-            android:textSize="30sp" />
+            android:textSize="27sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

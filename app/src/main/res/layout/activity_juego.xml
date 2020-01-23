@@ -50,12 +50,12 @@
 
     <TextView
         android:id="@+id/tv_letrasFalladas"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="100dp"
         android:fontFamily="@font/pigment"
         android:textAlignment="center"
         android:textColor="#d68181"
-        android:textSize="30sp"
+        android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_recuadroFallos"
         app:layout_constraintEnd_toEndOf="@+id/iv_recuadroFallos"
         app:layout_constraintHorizontal_bias="0.525"
@@ -109,7 +109,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/A"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_b"
@@ -121,7 +121,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/B"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_c"
@@ -133,7 +133,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/C"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_d"
@@ -145,7 +145,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/D"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_e"
@@ -157,7 +157,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/E"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_f"
@@ -169,7 +169,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/F"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_G"
@@ -181,7 +181,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/G"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -206,7 +206,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/ENE"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_o"
@@ -218,7 +218,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/O"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_p"
@@ -230,7 +230,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/P"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_q"
@@ -242,7 +242,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/Q"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_r"
@@ -254,7 +254,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/R"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_s"
@@ -266,7 +266,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/S"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_t"
@@ -278,7 +278,7 @@
             android:fontFamily="@font/pigment"
             android:text="@string/T"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
 
     </LinearLayout>
@@ -304,7 +304,7 @@
             android:onClick="letraClickeada"
             android:text="@string/H"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_i"
@@ -316,7 +316,7 @@
             android:onClick="letraClickeada"
             android:text="@string/I"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_j"
@@ -328,7 +328,7 @@
             android:onClick="letraClickeada"
             android:text="@string/J"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_k"
@@ -340,7 +340,7 @@
             android:onClick="letraClickeada"
             android:text="@string/K"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_l"
@@ -352,7 +352,7 @@
             android:onClick="letraClickeada"
             android:text="@string/L"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_m"
@@ -364,7 +364,7 @@
             android:onClick="letraClickeada"
             android:text="@string/M"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_n"
@@ -376,7 +376,7 @@
             android:onClick="letraClickeada"
             android:text="@string/N"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
     </LinearLayout>
 
@@ -401,7 +401,7 @@
             android:onClick="letraClickeada"
             android:text="@string/U"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_V"
@@ -413,7 +413,7 @@
             android:onClick="letraClickeada"
             android:text="@string/V"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_w"
@@ -425,7 +425,7 @@
             android:onClick="letraClickeada"
             android:text="@string/W"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_x"
@@ -437,7 +437,7 @@
             android:onClick="letraClickeada"
             android:text="@string/X"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_Y"
@@ -449,7 +449,7 @@
             android:onClick="letraClickeada"
             android:text="@string/Y"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/bt_z"
@@ -461,7 +461,7 @@
             android:onClick="letraClickeada"
             android:text="@string/Z"
             android:textColor="#FFFFFF"
-            android:textSize="47sp" />
+            android:textSize="40sp" />
 
     </LinearLayout>
 

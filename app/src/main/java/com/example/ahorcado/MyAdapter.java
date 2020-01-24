@@ -12,6 +12,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextView;
+
         public MyViewHolder(View v) {
             super(v);
             mTextView = v.findViewById(R.id.tv_textoRanking);
@@ -33,10 +34,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mTextView.setText(position+1+ ". " +mDataset[position]);
+        holder.mTextView.setText(position + 1 + ". " + mDataset[position]);
 
 
     }
+
     @Override
     public int getItemCount() {
         return mDataset.length;

@@ -34,22 +34,22 @@ public class DificultadActivity extends AppCompatActivity {
         bt_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dificultadElegida != 0){
+                if (dificultadElegida != 0) {
                     sonidoClick.start();
                     Intent i = new Intent(DificultadActivity.this, JuegoActivity.class);
                     i.putExtra("DIFICULTAD", dificultadElegida);
                     i.putExtra("NOMBRE", nombre);
                     startActivity(i);
 
-                }else{
+                } else {
                     Toast.makeText(DificultadActivity.this, getText(R.string.dificultad_vacia), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    public void dificultadClickeada(View v){
-         switch (v.getId()){
+    public void dificultadClickeada(View v) {
+        switch (v.getId()) {
             case R.id.bt_facil:
                 bt_facil.setBackground(getResources().getDrawable(R.drawable.botonrellenado2));
                 bt_normal.setBackground(getResources().getDrawable(R.drawable.boton_clickeado_tam_2));

@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class NombreActivity extends AppCompatActivity {
     private Button bt_ok;
@@ -29,7 +27,7 @@ public class NombreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (et_nombre.getText().toString().isEmpty()) {
                     et_nombre.setError(getText(R.string.nombre_vacio));
-                }else{
+                } else {
                     sonidoClick.start();
                     Intent intent = new Intent(NombreActivity.this, DificultadActivity.class);
                     intent.putExtra("NOMBRE", et_nombre.getText().toString());
